@@ -1,11 +1,12 @@
-import Link from 'next/link'
-import MaxWidthWrapper from './MaxWidthWrapper'
-import { Icons } from './Icons'
-import NavItems from './NavItems'
-import { buttonVariants } from './ui/button'
-import Cart from './Cart'
 import { getServerSideUser } from '@/lib/payload-utils'
 import { cookies } from 'next/headers'
+import Link from 'next/link'
+import Cart from './Cart'
+import { Icons } from './Icons'
+import MaxWidthWrapper from './MaxWidthWrapper'
+import NavItems from './NavItems'
+import UserAccountNav from './UserAccountNav'
+import { buttonVariants } from './ui/button'
 
 const Navbar = async () => {
   const nextCookies = cookies()
@@ -45,7 +46,7 @@ const Navbar = async () => {
                   {user ? null : <span className="h-6 w-px bg-gray-200" aria-hidden="true" />}
 
                   {user ? (
-                    <p></p>
+                    <UserAccountNav user={user} />
                   ) : (
                     <Link
                       href="/sign-up"

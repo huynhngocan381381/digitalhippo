@@ -12,9 +12,8 @@ import { useForm } from 'react-hook-form'
 
 import { AuthCredentialsValidator, TAuthCredentialsValidator } from '@/lib/validators/account-credentials-validator'
 import { trpc } from '@/trpc/client'
-import { toast } from 'sonner'
-import { ZodError } from 'zod'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { toast } from 'sonner'
 
 const Page = () => {
   const searchParams = useSearchParams()
