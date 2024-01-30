@@ -61,7 +61,7 @@ export const authRouter = router({
           email,
           password,
         },
-        res,
+        res
       })
 
       return { success: true }

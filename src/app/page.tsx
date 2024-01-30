@@ -1,22 +1,23 @@
-import Link from "next/link"
-import MaxWidthWrapper from "../components/MaxWidthWrapper"
-import { Button, buttonVariants } from "@/components/ui/button"
-import { ArrowDownToLine, CheckCircle, Leaf } from "lucide-react"
+import Link from 'next/link'
+import MaxWidthWrapper from '../components/MaxWidthWrapper'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { ArrowDownToLine, CheckCircle, Leaf } from 'lucide-react'
+import ProductReel from '../components/ProductReel'
 
 const perks = [
   {
-    name: "Instant Delivery",
+    name: 'Instant Delivery',
     Icon: ArrowDownToLine,
-    description: "Get your assets delivered to your email in seconds and download them right away.",
+    description: 'Get your assets delivered to your email in seconds and download them right away.',
   },
   {
-    name: "Guaranteed Quality",
+    name: 'Guaranteed Quality',
     Icon: CheckCircle,
     description:
-      "Every asset on our platform is verified by our team to ensure our highest quality standards. Not happy? We offer a 30-day refund guarantee.",
+      'Every asset on our platform is verified by our team to ensure our highest quality standards. Not happy? We offer a 30-day refund guarantee.',
   },
   {
-    name: "For the Planet",
+    name: 'For the Planet',
     Icon: Leaf,
     description: "We've pledged 1% of sales to the preservation and restoration of the natural environment.",
   },
@@ -42,7 +43,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* TODO: List products*/}
+        <ProductReel query={{ sort: 'desc', limit: 4 }} href="/products" title="Brand new" />
       </MaxWidthWrapper>
 
       <section className="border-t border-gray-200 bg-gray-50">
