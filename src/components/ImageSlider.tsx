@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -15,7 +15,9 @@ interface ImageSliderProps {
 }
 
 const ImageSlider = ({ urls }: ImageSliderProps) => {
-  const [swiper, setSwiper] = useState<null | SwiperType>(null)
+  const [swiper, setSwiper] = useState<null | SwiperType>(
+    null
+  )
   const [activeIndex, setActiveIndex] = useState(0)
 
   const [slideConfig, setSlideConfig] = useState({
@@ -38,20 +40,24 @@ const ImageSlider = ({ urls }: ImageSliderProps) => {
   const inactiveStyles = 'hidden text-gray-400'
 
   return (
-    <div className="group relative bg-zinc-100 aspect-square overflow-hidden rounded-xl">
-      <div className="absolute z-10 inset-0 opacity-0 group-hover:opacity-100 transition">
+    <div className='group relative bg-zinc-100 aspect-square overflow-hidden rounded-xl'>
+      <div className='absolute z-10 inset-0 opacity-0 group-hover:opacity-100 transition'>
         <button
           onClick={(e) => {
             e.preventDefault()
             swiper?.slideNext()
           }}
-          className={cn(activeStyles, 'right-3 transition', {
-            [inactiveStyles]: slideConfig.isEnd,
-            'hover:bg-primary-300 text-primary-800 opacity-100': !slideConfig.isEnd,
-          })}
-          aria-label="next image"
-        >
-          <ChevronRight className="h-4 w-4 text-zinc-700" />{' '}
+          className={cn(
+            activeStyles,
+            'right-3 transition',
+            {
+              [inactiveStyles]: slideConfig.isEnd,
+              'hover:bg-primary-300 text-primary-800 opacity-100':
+                !slideConfig.isEnd,
+            }
+          )}
+          aria-label='next image'>
+          <ChevronRight className='h-4 w-4 text-zinc-700' />{' '}
         </button>
         <button
           onClick={(e) => {
@@ -60,11 +66,11 @@ const ImageSlider = ({ urls }: ImageSliderProps) => {
           }}
           className={cn(activeStyles, 'left-3 transition', {
             [inactiveStyles]: slideConfig.isBeginning,
-            'hover:bg-primary-300 text-primary-800 opacity-100': !slideConfig.isBeginning,
+            'hover:bg-primary-300 text-primary-800 opacity-100':
+              !slideConfig.isBeginning,
           })}
-          aria-label="previous image"
-        >
-          <ChevronLeft className="h-4 w-4 text-zinc-700" />{' '}
+          aria-label='previous image'>
+          <ChevronLeft className='h-4 w-4 text-zinc-700' />{' '}
         </button>
       </div>
 
@@ -78,16 +84,17 @@ const ImageSlider = ({ urls }: ImageSliderProps) => {
         spaceBetween={50}
         modules={[Pagination]}
         slidesPerView={1}
-        className="h-full w-full"
-      >
+        className='h-full w-full'>
         {urls.map((url, i) => (
-          <SwiperSlide key={i} className="-z-10 relative h-full w-full">
+          <SwiperSlide
+            key={i}
+            className='-z-10 relative h-full w-full'>
             <Image
               fill
-              loading="eager"
-              className="-z-10 h-full w-full object-cover object-center"
+              loading='eager'
+              className='-z-10 h-full w-full object-cover object-center'
               src={url}
-              alt="Product image"
+              alt='Product image'
             />
           </SwiperSlide>
         ))}

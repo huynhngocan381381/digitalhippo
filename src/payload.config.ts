@@ -1,10 +1,10 @@
 import { buildConfig } from 'payload/config'
+import { webpackBundler } from '@payloadcms/bundler-webpack'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
+import { slateEditor } from '@payloadcms/richtext-slate'
 import path from 'path'
-import dotenv from 'dotenv'
-import { viteBundler } from '@payloadcms/bundler-vite'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { Users } from './collections/Users'
+import dotenv from 'dotenv'
 import { Products } from './collections/Products/Products'
 import { Media } from './collections/Media'
 import { ProductFiles } from './collections/ProductFile'
@@ -21,8 +21,8 @@ export default buildConfig({
     admin: '/sell',
   },
   admin: {
-    user: "users",
-    bundler: viteBundler(),
+    user: 'users',
+    bundler: webpackBundler(),
     meta: {
       titleSuffix: '- DigitalHippo',
       favicon: '/favicon.ico',
@@ -32,7 +32,7 @@ export default buildConfig({
   rateLimit: {
     max: 2000,
   },
-  editor: lexicalEditor({}),
+  editor: slateEditor({}),
   db: mongooseAdapter({
     url: process.env.MONGODB_URL!,
   }),
